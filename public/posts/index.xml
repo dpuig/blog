@@ -5,7 +5,91 @@
     <link>/posts/</link>
     <description>Recent content in Posts on Daniel Puig</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Mon, 26 Dec 2022 22:17:16 -0500</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go Programming Language</title>
+      <link>/posts/golang-intro/</link>
+      <pubDate>Mon, 26 Dec 2022 22:17:16 -0500</pubDate>
+      
+      <guid>/posts/golang-intro/</guid>
+      <description>Go is a programming language developed by Google in 2007. It is a statically-typed, compiled language that is designed to be simple, efficient, and easy to read and write.
+There are several benefits to using Go in a cloud native environment:
+Concurrency: Go has built-in support for concurrency, which makes it easy to write programs that can perform multiple tasks simultaneously. This is useful for building scalable and reliable cloud native applications.</description>
+      <content>&lt;p&gt;Go is a programming language developed by Google in 2007. It is a statically-typed, compiled language that is designed to be simple, efficient, and easy to read and write.&lt;/p&gt;
+&lt;p&gt;There are several benefits to using Go in a cloud native environment:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Concurrency: Go has built-in support for concurrency, which makes it easy to write programs that can perform multiple tasks simultaneously. This is useful for building scalable and reliable cloud native applications.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Memory safety: Go has a garbage collector and automatic memory management, which helps prevent common programming errors such as buffer overflows and null pointer exceptions. This makes it easier to write safe and secure code.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Cross-platform compatibility: Go programs can be compiled and run on a variety of platforms, including Linux, macOS, and Windows. This makes it easy to deploy Go applications in a cloud native environment.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Strong standard library: Go has a robust standard library that provides a wide range of functionality, including support for networking, file I/O, and cryptographic operations. This makes it easy to build powerful and feature-rich cloud native applications.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Go is commonly used for building cloud native applications, particularly those that require concurrency, high performance, and scalability. Some examples of Go&amp;rsquo;s use in the cloud include building microservices, developing APIs, and building command-line tools.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;In Go, it is common to organize code in the following way:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Code is organized into packages, which are similar to libraries or modules in other languages. Each package has a set of Go source files in a single directory that all share the same package name.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A package may contain one or more Go source files. Each source file belongs to a single package and must start with a package declaration specifying the package name.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Within a package, code is organized into logical units called functions. A function is a block of code that performs a specific task and may return a value. Functions can be defined inside other functions, allowing for the creation of nested functions.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In Go, it is also common to organize code into structs, which are composite data types that group together related data fields and define the behavior of those fields through methods. A method is a function that is associated with a specific struct type.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;It is also common to define a main package and a main function in Go programs. The main function is the entry point of the program and is the first function that is called when the program starts.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here is an example of a basic Go project structure:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- main.go
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - package main
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - imports package &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;foo&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - defines main &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- foo/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - foo.go
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - package foo
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - defines struct &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Foo&amp;#34;&lt;/span&gt; and its methods
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - foo_test.go
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - package foo
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - imports &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;testing&amp;#34;&lt;/span&gt; package
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - defines unit tests &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; package &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;foo&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is just one possible way to structure a Go project, and there are many other ways to organize code in Go. The important thing is to choose a structure that makes sense for your particular project and helps you write maintainable and scalable code.&lt;/p&gt;
+&lt;h3 id=&#34;go-command-line-interface-cli-application&#34;&gt;Go command line interface (CLI) application&lt;/h3&gt;
+&lt;p&gt;There are several best practices to consider when structuring a Go command line interface (CLI) application:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Use the flag package to parse command-line flags and arguments: The flag package provides a convenient way to define and parse command-line flags and arguments. It allows you to define flags using a simple syntax, and then parse them from the command line when the program is executed.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use subcommands to structure the application: A common pattern for CLI applications is to use subcommands to organize the different actions that the program can perform. For example, a version control system might have a commit subcommand for committing changes, a push subcommand for pushing changes to a remote repository, and so on. This can make the application easier to understand and use, as it allows users to see the different options available to them at a glance.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use structured logging: It&amp;rsquo;s important to include structured logging in your CLI application to make it easier to troubleshoot problems and understand how the application is being used. You can use the log package, or a third-party logging library like logrus or zap, to add structured logging to your application.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use a configuration file: A configuration file can be used to store settings and preferences for your CLI application. This can be useful for storing things like API keys, server URLs, and other values that might change from one environment to another. You can use the viper package to easily read configuration files in a variety of formats (e.g., JSON, YAML, etc.).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use a dependency injection framework: Dependency injection is a technique for decoupling components in your application and making it easier to test and maintain. You can use a dependency injection framework like wire to manage the dependencies in your CLI application and make it easier to swap out different implementations as needed.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use automated tests: Automated tests are an important part of any software project, and CLI applications are no exception. You can use the testing package in Go to write unit tests and integration tests for your application. This will help ensure that your application is reliable and behaves as expected.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    </item>
+    
     <item>
       <title>MicroK8s</title>
       <link>/posts/microk8s/</link>
