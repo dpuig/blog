@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Go Programming Language :: Daniel Puig</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="An open-source programming language supported by Google" />
+<meta name="keywords" content="Go, Golang, Cloud Native, Programming" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/posts/golang-intro/" />
+
+
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/blue-local.css">
+
+
+
+
+
+
+
+  <link rel="shortcut icon" href="/img/theme-colors/blue.png">
+  <link rel="apple-touch-icon" href="/img/theme-colors/blue.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="dpuiger" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Go Programming Language">
+<meta property="og:description" content="An open-source programming language supported by Google" />
+<meta property="og:url" content="/posts/golang-intro/" />
+<meta property="og:site_name" content="Daniel Puig" />
+
+  
+  
+  <meta property="og:image" content="/">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2022-12-26 22:17:16 -0500 EST" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="blue">
+
+
+<div class="container headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Daniel Puig Blog
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="https://twitter.com/dpuiger">GitHub</a></li>
+        
+      
+        
+          <li><a href="https://github.com/dpuig">Twitter</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="https://twitter.com/dpuiger">GitHub</a></li>
+        
+      
+        
+          <li><a href="https://github.com/dpuig">Twitter</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="/posts/golang-intro/">Go Programming Language</a>
+  </h1>
+  <div class="post-meta">
+    
+      <time class="post-date">
+        2022-12-26 ::
+        
+      </time>
+    
+    
+      <span class="post-author">Daniel Puig</span>
+    
+    
+  </div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="/tags/go/">Go</a>&nbsp;
+      
+      #<a href="/tags/golang/">Golang</a>&nbsp;
+      
+      #<a href="/tags/cloud-native/">Cloud Native</a>&nbsp;
+      
+      #<a href="/tags/programming/">Programming</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <p>Go is a programming language developed by Google in 2007. It is a statically-typed, compiled language that is designed to be simple, efficient, and easy to read and write.</p>
+<p>There are several benefits to using Go in a cloud native environment:</p>
+<ol>
+<li>
+<p>Concurrency: Go has built-in support for concurrency, which makes it easy to write programs that can perform multiple tasks simultaneously. This is useful for building scalable and reliable cloud native applications.</p>
+</li>
+<li>
+<p>Memory safety: Go has a garbage collector and automatic memory management, which helps prevent common programming errors such as buffer overflows and null pointer exceptions. This makes it easier to write safe and secure code.</p>
+</li>
+<li>
+<p>Cross-platform compatibility: Go programs can be compiled and run on a variety of platforms, including Linux, macOS, and Windows. This makes it easy to deploy Go applications in a cloud native environment.</p>
+</li>
+<li>
+<p>Strong standard library: Go has a robust standard library that provides a wide range of functionality, including support for networking, file I/O, and cryptographic operations. This makes it easy to build powerful and feature-rich cloud native applications.</p>
+</li>
+</ol>
+<p>Go is commonly used for building cloud native applications, particularly those that require concurrency, high performance, and scalability. Some examples of Go&rsquo;s use in the cloud include building microservices, developing APIs, and building command-line tools.</p>
+<p><strong>In Go, it is common to organize code in the following way:</strong></p>
+<ul>
+<li>
+<p>Code is organized into packages, which are similar to libraries or modules in other languages. Each package has a set of Go source files in a single directory that all share the same package name.</p>
+</li>
+<li>
+<p>A package may contain one or more Go source files. Each source file belongs to a single package and must start with a package declaration specifying the package name.</p>
+</li>
+<li>
+<p>Within a package, code is organized into logical units called functions. A function is a block of code that performs a specific task and may return a value. Functions can be defined inside other functions, allowing for the creation of nested functions.</p>
+</li>
+<li>
+<p>In Go, it is also common to organize code into structs, which are composite data types that group together related data fields and define the behavior of those fields through methods. A method is a function that is associated with a specific struct type.</p>
+</li>
+<li>
+<p>It is also common to define a main package and a main function in Go programs. The main function is the entry point of the program and is the first function that is called when the program starts.</p>
+</li>
+</ul>
+<p>Here is an example of a basic Go project structure:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>- main.go
+</span></span><span style="display:flex;"><span>  - package main
+</span></span><span style="display:flex;"><span>  - imports package <span style="color:#e6db74">&#34;foo&#34;</span>
+</span></span><span style="display:flex;"><span>  - defines main <span style="color:#66d9ef">function</span>
+</span></span><span style="display:flex;"><span>- foo/
+</span></span><span style="display:flex;"><span>  - foo.go
+</span></span><span style="display:flex;"><span>    - package foo
+</span></span><span style="display:flex;"><span>    - defines struct <span style="color:#e6db74">&#34;Foo&#34;</span> and its methods
+</span></span><span style="display:flex;"><span>  - foo_test.go
+</span></span><span style="display:flex;"><span>    - package foo
+</span></span><span style="display:flex;"><span>    - imports <span style="color:#e6db74">&#34;testing&#34;</span> package
+</span></span><span style="display:flex;"><span>    - defines unit tests <span style="color:#66d9ef">for</span> package <span style="color:#e6db74">&#34;foo&#34;</span>
+</span></span></code></pre></div><p>This is just one possible way to structure a Go project, and there are many other ways to organize code in Go. The important thing is to choose a structure that makes sense for your particular project and helps you write maintainable and scalable code.</p>
+<h3 id="go-command-line-interface-cli-application">Go command line interface (CLI) application<a href="#go-command-line-interface-cli-application" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>There are several best practices to consider when structuring a Go command line interface (CLI) application:</p>
+<ol>
+<li>
+<p>Use the flag package to parse command-line flags and arguments: The flag package provides a convenient way to define and parse command-line flags and arguments. It allows you to define flags using a simple syntax, and then parse them from the command line when the program is executed.</p>
+</li>
+<li>
+<p>Use subcommands to structure the application: A common pattern for CLI applications is to use subcommands to organize the different actions that the program can perform. For example, a version control system might have a commit subcommand for committing changes, a push subcommand for pushing changes to a remote repository, and so on. This can make the application easier to understand and use, as it allows users to see the different options available to them at a glance.</p>
+</li>
+<li>
+<p>Use structured logging: It&rsquo;s important to include structured logging in your CLI application to make it easier to troubleshoot problems and understand how the application is being used. You can use the log package, or a third-party logging library like logrus or zap, to add structured logging to your application.</p>
+</li>
+<li>
+<p>Use a configuration file: A configuration file can be used to store settings and preferences for your CLI application. This can be useful for storing things like API keys, server URLs, and other values that might change from one environment to another. You can use the viper package to easily read configuration files in a variety of formats (e.g., JSON, YAML, etc.).</p>
+</li>
+<li>
+<p>Use a dependency injection framework: Dependency injection is a technique for decoupling components in your application and making it easier to test and maintain. You can use a dependency injection framework like wire to manage the dependencies in your CLI application and make it easier to swap out different implementations as needed.</p>
+</li>
+<li>
+<p>Use automated tests: Automated tests are an important part of any software project, and CLI applications are no exception. You can use the testing package in Go to write unit tests and integration tests for your application. This will help ensure that your application is reliable and behaves as expected.</p>
+</li>
+</ol>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        
+        <span class="button next">
+            <a href="/posts/microk8s/">
+                <span class="button__text">MicroK8s</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2022 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>
