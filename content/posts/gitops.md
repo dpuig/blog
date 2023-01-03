@@ -11,7 +11,7 @@ showFullContent = false
 readingTime = false
 hideComments = false
 color = "blue" #color from the theme settings
-draft = true
+draft = false
 +++
 
 GitOps is a development and operations methodology that aims to make infrastructure and application deployment as easy and reliable as possible. It does this by using Git as a single source of truth for both infrastructure and application code, as well as for storing and tracking the desired state of the system.
