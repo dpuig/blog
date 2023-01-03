@@ -3,7 +3,7 @@ title: "MicroK8s"
 date: "{{ .Date }}"
 author: "Daniel Puig"
 authorTwitter: "dpuiger" #do not include @
-cover: ""
+cover: "https://blogd.net/kubernetes/cai-dat-kubernetes-cluster/img/microk8s.jpg"
 tags: ["Kubernetes"]
 keywords: ["", ""]
 description: "MicroK8s a Kubernetes Cluster Distro for "

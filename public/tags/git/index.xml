@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>kubernetes on Daniel Puig</title>
-    <link>/tags/kubernetes/</link>
-    <description>Recent content in kubernetes on Daniel Puig</description>
+    <title>git on Daniel Puig</title>
+    <link>/tags/git/</link>
+    <description>Recent content in git on Daniel Puig</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 02 Jan 2023 23:21:14 -0500</lastBuildDate><atom:link href="/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 02 Jan 2023 23:21:14 -0500</lastBuildDate><atom:link href="/tags/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Gitops</title>
       <link>/posts/gitops/</link>
@@ -20,23 +20,6 @@ One of the key benefits of GitOps is that it allows for a more collaborative and
 &lt;p&gt;GitOps also makes it easier to automate the deployment process. By using tools like GitLab or Jenkins, it is possible to set up a continuous delivery pipeline that automatically deploys code changes when they are pushed to the repository. This can significantly reduce the time it takes to deploy new features and bug fixes, and makes it easier to scale deployments across multiple environments.&lt;/p&gt;
 &lt;p&gt;Another important aspect of GitOps is the emphasis on declarative configuration. Instead of manually provisioning and configuring infrastructure, GitOps practitioners define the desired state of the system using declarative configuration files, such as Kubernetes manifests or Terraform configuration files. These configuration files are then used to automatically provision and configure the necessary infrastructure and applications. This approach makes it easier to understand and manage the system, and makes it easier to replicate the same configuration in different environments.&lt;/p&gt;
 &lt;p&gt;Overall, GitOps is a powerful approach to managing infrastructure and applications that can help organizations to deploy more quickly and reliably, while also improving collaboration and transparency. It is particularly well-suited to organizations that are using containerization and cloud-native technologies, and is likely to become increasingly important as these technologies continue to grow in popularity.&lt;/p&gt;
-</content>
-    </item>
-    
-    <item>
-      <title>MicroK8s</title>
-      <link>/posts/microk8s/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/microk8s/</guid>
-      <description>MicroK8s Kubernetes is a powerful container orchestration tool that allows users to manage and deploy containerized applications at scale. There are several distributions of Kubernetes available, each with their own unique set of features and benefits. In this blog post, we will explore the benefits of using MicroK8s as your Kubernetes distribution.
-One of the key benefits of using MicroK8s is its simplicity and ease of use. Unlike other Kubernetes distributions that can be complex and require a lot of setup and configuration, MicroK8s is designed to be fast and easy to install.</description>
-      <content>&lt;h2 id=&#34;microk8s&#34;&gt;MicroK8s&lt;/h2&gt;
-&lt;p&gt;Kubernetes is a powerful container orchestration tool that allows users to manage and deploy containerized applications at scale. There are several distributions of Kubernetes available, each with their own unique set of features and benefits. In this blog post, we will explore the benefits of using MicroK8s as your Kubernetes distribution.&lt;/p&gt;
-&lt;p&gt;One of the key benefits of using MicroK8s is its simplicity and ease of use. Unlike other Kubernetes distributions that can be complex and require a lot of setup and configuration, MicroK8s is designed to be fast and easy to install. It can be installed on a single node in just a few minutes, making it ideal for developers who want to quickly test and deploy applications in a Kubernetes environment.&lt;/p&gt;
-&lt;p&gt;Another benefit of MicroK8s is its lightweight nature. It is designed to be minimal and efficient, making it well-suited for use on edge devices and IoT applications. Because it does not require a lot of resources, it can be used on low-powered devices without sacrificing performance.&lt;/p&gt;
-&lt;p&gt;MicroK8s also offers a number of useful features that make it a great choice for deploying and managing Kubernetes applications. For example, it includes support for automatic updates and rollbacks, making it easy to keep your Kubernetes cluster up-to-date and secure. It also includes built-in support for key Kubernetes add-ons such as DNS, Dashboard, and Monitoring, allowing you to easily enable these features on your cluster.&lt;/p&gt;
-&lt;p&gt;Overall, MicroK8s is a powerful and easy-to-use Kubernetes distribution that offers a number of benefits for developers and organizations looking to deploy and manage containerized applications. Its simplicity, lightweight nature, and support for key features make it a great choice for a wide range of use cases.&lt;/p&gt;
 </content>
     </item>
     
