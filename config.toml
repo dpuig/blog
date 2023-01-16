@@ -86,11 +86,12 @@ paginate = 5
       [[languages.en.menu.main]]
         identifier = "about"
         name = "Twitter"
-        url = "https://github.com/dpuig"
+        url = "https://twitter.com/dpuiger"
       [[languages.en.menu.main]]
         identifier = "showcase"
         name = "GitHub"
-        url = "https://twitter.com/dpuiger"
+        url = "https://github.com/dpuig"
+        
 
 [module]
   # In case you would like to make changes to the theme and keep it locally in you repository,
