@@ -32,9 +32,11 @@ Prometheus is composed of a few key components:
 
 ![Architecture](https://prometheus.io/assets/architecture.png)
 
-### Core Features
+## Core Features
 
-__Data Model__ : The data model in Prometheus is based on time-series data, where each series is identified by a unique metric name and a set of key-value pairs called labels.
+### Data Model
+
+The data model in Prometheus is based on time-series data, where each series is identified by a unique metric name and a set of key-value pairs called labels.
 
 Each time-series is composed of a sequence of data points, where each data point consists of a timestamp and a numeric value.
 
@@ -49,7 +51,9 @@ Prometheus data model is based on time-series data, where each series is identif
 [More Info](https://prometheus.io/docs/concepts/data_model/#data-model)
 
 
-__Metrics Transfer Format__ : Prometheus uses its own data format to transfer metrics between Prometheus components and exporters. Is a text-based format that is designed to be human-readable and easy to parse.
+### Metrics Transfer Format
+
+Prometheus uses its own data format to transfer metrics between Prometheus components and exporters. Is a text-based format that is designed to be human-readable and easy to parse.
 
 Uses a line-based structure, where each line represents a single metric. Each metric is defined by a metric name, followed by a set of key-value pairs that define the labels of the metric. The metric value is then appended to the end of the line.
 
@@ -65,5 +69,45 @@ In this example, the metric name is "http_request_duration_seconds", and it has 
 The format also supports sending multiple samples within the same metric, allowing for more efficient transfer of metrics. The format also includes a way to encode "help" and "type" of the metric, that is human-readable information about the metric and it's type.
 
 [More Info](https://training.promlabs.com/training/introduction-to-prometheus/prometheus-an-overview/metrics-transfer-format)
+
+### Query Language
+
+__Prometheus Query Language (PromQL)__ is a powerful query language that is used to process and analyze metrics stored in Prometheus. It is designed to be expressive, yet easy to use, and allows users to perform complex queries and calculations on the collected metrics.
+
+PromQL supports a variety of operations, including:
+
+- __Aggregation__: PromQL allows for aggregation of metrics based on their labels, for example, calculating the average request duration for all requests with a specific endpoint.
+
+- __Arithmetic__: PromQL supports basic mathematical operations such as addition, subtraction, multiplication, and division.
+
+- __Filtering__: PromQL allows for filtering metrics based on their labels, for example, selecting only the metrics for requests with a specific status code.
+
+- __Vector matching__: PromQL allows for selecting metrics based on their labels, for example, selecting all metrics that match a specific label value.
+
+- __Functions__: PromQL includes a variety of built-in functions, such as rate() to calculate the rate of change of a metric over time, histogram_quantile() to calculate quantiles of a histogram, and time() to select the timestamp of a metric.
+
+PromQL also supports using subqueries to perform more complex calculations. For example, calculating the average request duration for all requests with a specific endpoint, then calculating the rate of change of that average over time.
+
+PromQL also supports the use of regular expressions for matching metric names and label values, and in-built functions for working with time series.
+
+Cheat Sheet: https://promlabs.com/promql-cheat-sheet/
+
+[More Info](https://prometheus.io/docs/prometheus/latest/querying/basics/)
+
+### Alerting
+
+Prometheus includes a built-in alerting system that allows users to define rules that trigger alerts based on the results of PromQL queries. The alerting system is composed of two main components: __Prometheus server__ and __Alertmanager__.
+
+- __Prometheus Server__: Prometheus server evaluates the alerting rules at a specified interval, and if a rule's condition is met, it sends an alert to the Alertmanager. The alert includes the metric name, labels, and value that triggered the alert, as well as the time that the alert was triggered.
+
+- __Alertmanager__: The Alertmanager is responsible for sending notifications about detected issues. It can be configured to route alerts to different receivers based on their severity and other criteria. It can also handle alert deduplication, aggregation, and silence management.
+
+Alertmanager can send notifications via various methods like email, slack, pagerduty, etc. Alerts can also be grouped together, so that multiple alerts can be sent as a single notification, and the alertmanager can also be configured to send notifications to different people or teams depending on the alert's severity or the time of day.
+
+Users can define alerts in Prometheus configuration file, using PromQL queries to specify the conditions that should trigger the alert. Users can also specify the severity level of the alerts, and configure how often Prometheus should check for alerting conditions.
+
+
+
+
 
 
