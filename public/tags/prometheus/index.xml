@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Daniel Puig</title>
-    <link>/</link>
-    <description>Recent content on Daniel Puig</description>
+    <title>prometheus on Daniel Puig</title>
+    <link>/tags/prometheus/</link>
+    <description>Recent content in prometheus on Daniel Puig</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Jan 2023 10:17:17 -0500</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Jan 2023 10:17:17 -0500</lastBuildDate><atom:link href="/tags/prometheus/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Prometheus 101</title>
       <link>/posts/prometheus-introduction/</link>
@@ -108,122 +108,6 @@
 &lt;/ul&gt;
 &lt;p&gt;Service discovery can be configured in the Prometheus configuration file, where the user specifies the discovery mechanism to use and the necessary parameters.&lt;/p&gt;
 &lt;p&gt;In conclusion, Prometheus is a powerful and widely used open-source monitoring system that has had a significant impact on the industry. Its ability to collect metrics from various sources, store them in a time-series database, and provide a powerful query language for processing and analyzing the collected data, makes it an ideal choice for monitoring dynamic and distributed environments. The built-in alerting system and service discovery capabilities further enhance its functionality. The ability to integrate with other popular tools like Kubernetes and Grafana makes it a popular choice for cloud-native environments. The flexibility and scalability of Prometheus have made it a go-to choice for organizations of all sizes, and its continued development and adoption show its importance in the industry. Prometheus has become an essential tool for ensuring the performance and availability of systems and applications, and its impact on the industry is undeniable.&lt;/p&gt;
-</content>
-    </item>
-    
-    <item>
-      <title>Gitops</title>
-      <link>/posts/gitops/</link>
-      <pubDate>Mon, 02 Jan 2023 23:21:14 -0500</pubDate>
-      
-      <guid>/posts/gitops/</guid>
-      <description>GitOps is a development and operations methodology that aims to make infrastructure and application deployment as easy and reliable as possible. It does this by using Git as a single source of truth for both infrastructure and application code, as well as for storing and tracking the desired state of the system.
-One of the key benefits of GitOps is that it allows for a more collaborative and transparent approach to operations tasks.</description>
-      <content>&lt;p&gt;GitOps is a development and operations methodology that aims to make infrastructure and application deployment as easy and reliable as possible. It does this by using Git as a single source of truth for both infrastructure and application code, as well as for storing and tracking the desired state of the system.&lt;/p&gt;
-&lt;p&gt;One of the key benefits of GitOps is that it allows for a more collaborative and transparent approach to operations tasks. With GitOps, all changes to infrastructure and application code are stored in version control and are subject to review and approval before being deployed. This helps to reduce the risk of errors and makes it easier to rollback changes if necessary.&lt;/p&gt;
-&lt;p&gt;GitOps also makes it easier to automate the deployment process. By using tools like GitLab or Jenkins, it is possible to set up a continuous delivery pipeline that automatically deploys code changes when they are pushed to the repository. This can significantly reduce the time it takes to deploy new features and bug fixes, and makes it easier to scale deployments across multiple environments.&lt;/p&gt;
-&lt;p&gt;Another important aspect of GitOps is the emphasis on declarative configuration. Instead of manually provisioning and configuring infrastructure, GitOps practitioners define the desired state of the system using declarative configuration files, such as Kubernetes manifests or Terraform configuration files. These configuration files are then used to automatically provision and configure the necessary infrastructure and applications. This approach makes it easier to understand and manage the system, and makes it easier to replicate the same configuration in different environments.&lt;/p&gt;
-&lt;p&gt;Overall, GitOps is a powerful approach to managing infrastructure and applications that can help organizations to deploy more quickly and reliably, while also improving collaboration and transparency. It is particularly well-suited to organizations that are using containerization and cloud-native technologies, and is likely to become increasingly important as these technologies continue to grow in popularity.&lt;/p&gt;
-</content>
-    </item>
-    
-    <item>
-      <title>Go Programming Language</title>
-      <link>/posts/golang-intro/</link>
-      <pubDate>Mon, 26 Dec 2022 22:17:16 -0500</pubDate>
-      
-      <guid>/posts/golang-intro/</guid>
-      <description>Go is a programming language developed by Google in 2007. It is a statically-typed, compiled language that is designed to be simple, efficient, and easy to read and write.
-There are several benefits to using Go in a cloud native environment:
-Concurrency: Go has built-in support for concurrency, which makes it easy to write programs that can perform multiple tasks simultaneously. This is useful for building scalable and reliable cloud native applications.</description>
-      <content>&lt;p&gt;Go is a programming language developed by Google in 2007. It is a statically-typed, compiled language that is designed to be simple, efficient, and easy to read and write.&lt;/p&gt;
-&lt;p&gt;There are several benefits to using Go in a cloud native environment:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Concurrency: Go has built-in support for concurrency, which makes it easy to write programs that can perform multiple tasks simultaneously. This is useful for building scalable and reliable cloud native applications.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Memory safety: Go has a garbage collector and automatic memory management, which helps prevent common programming errors such as buffer overflows and null pointer exceptions. This makes it easier to write safe and secure code.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Cross-platform compatibility: Go programs can be compiled and run on a variety of platforms, including Linux, macOS, and Windows. This makes it easy to deploy Go applications in a cloud native environment.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Strong standard library: Go has a robust standard library that provides a wide range of functionality, including support for networking, file I/O, and cryptographic operations. This makes it easy to build powerful and feature-rich cloud native applications.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Go is commonly used for building cloud native applications, particularly those that require concurrency, high performance, and scalability. Some examples of Go&amp;rsquo;s use in the cloud include building microservices, developing APIs, and building command-line tools.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;In Go, it is common to organize code in the following way:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Code is organized into packages, which are similar to libraries or modules in other languages. Each package has a set of Go source files in a single directory that all share the same package name.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;A package may contain one or more Go source files. Each source file belongs to a single package and must start with a package declaration specifying the package name.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Within a package, code is organized into logical units called functions. A function is a block of code that performs a specific task and may return a value. Functions can be defined inside other functions, allowing for the creation of nested functions.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;In Go, it is also common to organize code into structs, which are composite data types that group together related data fields and define the behavior of those fields through methods. A method is a function that is associated with a specific struct type.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;It is also common to define a main package and a main function in Go programs. The main function is the entry point of the program and is the first function that is called when the program starts.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Here is an example of a basic Go project structure:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- main.go
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - package main
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - imports package &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;foo&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - defines main &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- foo/
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - foo.go
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - package foo
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - defines struct &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Foo&amp;#34;&lt;/span&gt; and its methods
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - foo_test.go
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - package foo
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - imports &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;testing&amp;#34;&lt;/span&gt; package
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - defines unit tests &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; package &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;foo&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is just one possible way to structure a Go project, and there are many other ways to organize code in Go. The important thing is to choose a structure that makes sense for your particular project and helps you write maintainable and scalable code.&lt;/p&gt;
-&lt;h3 id=&#34;go-command-line-interface-cli-application&#34;&gt;Go command line interface (CLI) application&lt;/h3&gt;
-&lt;p&gt;There are several best practices to consider when structuring a Go command line interface (CLI) application:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Use the flag package to parse command-line flags and arguments: The flag package provides a convenient way to define and parse command-line flags and arguments. It allows you to define flags using a simple syntax, and then parse them from the command line when the program is executed.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Use subcommands to structure the application: A common pattern for CLI applications is to use subcommands to organize the different actions that the program can perform. For example, a version control system might have a commit subcommand for committing changes, a push subcommand for pushing changes to a remote repository, and so on. This can make the application easier to understand and use, as it allows users to see the different options available to them at a glance.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Use structured logging: It&amp;rsquo;s important to include structured logging in your CLI application to make it easier to troubleshoot problems and understand how the application is being used. You can use the log package, or a third-party logging library like logrus or zap, to add structured logging to your application.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Use a configuration file: A configuration file can be used to store settings and preferences for your CLI application. This can be useful for storing things like API keys, server URLs, and other values that might change from one environment to another. You can use the viper package to easily read configuration files in a variety of formats (e.g., JSON, YAML, etc.).&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Use a dependency injection framework: Dependency injection is a technique for decoupling components in your application and making it easier to test and maintain. You can use a dependency injection framework like wire to manage the dependencies in your CLI application and make it easier to swap out different implementations as needed.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Use automated tests: Automated tests are an important part of any software project, and CLI applications are no exception. You can use the testing package in Go to write unit tests and integration tests for your application. This will help ensure that your application is reliable and behaves as expected.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-</content>
-    </item>
-    
-    <item>
-      <title>MicroK8s</title>
-      <link>/posts/microk8s/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/microk8s/</guid>
-      <description>MicroK8s Kubernetes is a powerful container orchestration tool that allows users to manage and deploy containerized applications at scale. There are several distributions of Kubernetes available, each with their own unique set of features and benefits. In this blog post, we will explore the benefits of using MicroK8s as your Kubernetes distribution.
-One of the key benefits of using MicroK8s is its simplicity and ease of use. Unlike other Kubernetes distributions that can be complex and require a lot of setup and configuration, MicroK8s is designed to be fast and easy to install.</description>
-      <content>&lt;h2 id=&#34;microk8s&#34;&gt;MicroK8s&lt;/h2&gt;
-&lt;p&gt;Kubernetes is a powerful container orchestration tool that allows users to manage and deploy containerized applications at scale. There are several distributions of Kubernetes available, each with their own unique set of features and benefits. In this blog post, we will explore the benefits of using MicroK8s as your Kubernetes distribution.&lt;/p&gt;
-&lt;p&gt;One of the key benefits of using MicroK8s is its simplicity and ease of use. Unlike other Kubernetes distributions that can be complex and require a lot of setup and configuration, MicroK8s is designed to be fast and easy to install. It can be installed on a single node in just a few minutes, making it ideal for developers who want to quickly test and deploy applications in a Kubernetes environment.&lt;/p&gt;
-&lt;p&gt;Another benefit of MicroK8s is its lightweight nature. It is designed to be minimal and efficient, making it well-suited for use on edge devices and IoT applications. Because it does not require a lot of resources, it can be used on low-powered devices without sacrificing performance.&lt;/p&gt;
-&lt;p&gt;MicroK8s also offers a number of useful features that make it a great choice for deploying and managing Kubernetes applications. For example, it includes support for automatic updates and rollbacks, making it easy to keep your Kubernetes cluster up-to-date and secure. It also includes built-in support for key Kubernetes add-ons such as DNS, Dashboard, and Monitoring, allowing you to easily enable these features on your cluster.&lt;/p&gt;
-&lt;p&gt;Overall, MicroK8s is a powerful and easy-to-use Kubernetes distribution that offers a number of benefits for developers and organizations looking to deploy and manage containerized applications. Its simplicity, lightweight nature, and support for key features make it a great choice for a wide range of use cases.&lt;/p&gt;
 </content>
     </item>
     
