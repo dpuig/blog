@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Prometheus 101 :: Daniel Puig</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The open-source monitoring solution" />
+<meta name="keywords" content=", " />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/posts/prometheus-introduction/" />
+
+
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/orange-local.css">
+
+
+
+
+
+
+
+  <link rel="shortcut icon" href="/img/theme-colors/orange.png">
+  <link rel="apple-touch-icon" href="/img/theme-colors/orange.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Prometheus 101">
+<meta property="og:description" content="The open-source monitoring solution" />
+<meta property="og:url" content="/posts/prometheus-introduction/" />
+<meta property="og:site_name" content="Daniel Puig" />
+
+  
+  
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/3/38/Prometheus_software_logo.svg">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2023-01-16 10:17:17 -0500 EST" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="orange">
+
+
+<div class="container headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Daniel Puig Blog
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="https://github.com/dpuig">GitHub</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/dpuiger">Twitter</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="https://github.com/dpuig">GitHub</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/dpuiger">Twitter</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="/posts/prometheus-introduction/">Prometheus 101</a>
+  </h1>
+  <div class="post-meta">
+    
+      <time class="post-date">
+        2023-01-16 ::
+        
+      </time>
+    
+    
+      <span class="post-author">Daniel Puig</span>
+    
+    
+  </div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="/tags/monitoring/">monitoring</a>&nbsp;
+      
+      #<a href="/tags/observability/">observability</a>&nbsp;
+      
+      #<a href="/tags/metrics/">metrics</a>&nbsp;
+      
+      #<a href="/tags/prometheus/">prometheus</a>&nbsp;
+      
+    </span>
+  
+  
+  <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Prometheus_software_logo.svg"
+    class="post-cover"
+    alt="Prometheus 101"
+    title="Cover Image" />
+
+
+  
+
+  <div class="post-content"><div>
+        <p>Prometheus is an open-source systems monitoring and alerting toolkit. It was originally developed at SoundCloud in 2012. Prometheus is designed for monitoring and alerting of systems and applications in dynamic and distributed environments. It can collect metrics from various sources, including from application code, and provides a powerful query language for processing and analyzing the collected data. Prometheus also includes a built-in alert manager for sending notifications about detected issues. It is a popular choice for monitoring in cloud-native environments and is often used in conjunction with Kubernetes.</p>
+<h3 id="system">System<a href="#system" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Prometheus is composed of a few key components:</p>
+<ul>
+<li>
+<p><strong>Prometheus Server</strong>: This is the core component that collects metrics from various sources and stores them in a time-series database. It also provides a query language for processing and analyzing the collected data.</p>
+</li>
+<li>
+<p><strong>Exporters</strong>: These are special-purpose exporters that collect metrics from specific systems or applications and make them available to Prometheus. Examples include exporters for Linux system metrics, MySQL, and HAProxy.</p>
+</li>
+<li>
+<p><strong>Alertmanager</strong>: This component is responsible for sending notifications about detected issues. It can be configured to route alerts to different receivers based on their severity and other criteria.</p>
+</li>
+<li>
+<p><strong>Pushgateway</strong>: This component allows short-lived jobs to push metrics to Prometheus. It is commonly used in situations where it is not possible to run the Prometheus server as a long-running process.</p>
+</li>
+<li>
+<p><strong>Grafana</strong>: This is a popular open-source visualization tool that can be used in conjunction with Prometheus to display metrics in a more user-friendly way.</p>
+</li>
+</ul>
+<p><img src="https://prometheus.io/assets/architecture.png" alt="Architecture"></p>
+<h2 id="core-features">Core Features<a href="#core-features" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h3 id="data-model">Data Model<a href="#data-model" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>The data model in Prometheus is based on time-series data, where each series is identified by a unique metric name and a set of key-value pairs called labels.</p>
+<p>Each time-series is composed of a sequence of data points, where each data point consists of a timestamp and a numeric value.</p>
+<p>Metrics are organized in a hierarchical namespace, with each level separated by a forward-slash (/) character. For example, the metric &ldquo;http_requests_total&rdquo; would represent the total number of HTTP requests, while &ldquo;http_request_duration_seconds&rdquo; could represent the duration of each individual request.</p>
+<p>Labels are used to add additional dimensions to a metric and to group metrics together. Labels are key-value pairs, where the key is a string and the value is also a string. For example, a metric for HTTP request duration could have a label for the status code, such as &ldquo;200&rdquo; or &ldquo;404&rdquo;, and another label for the endpoint, such as &ldquo;/users&rdquo; or &ldquo;/admin&rdquo;. This allows for easy filtering, aggregation and querying of metrics.</p>
+<p>Prometheus supports a variety of data types, including counters, gauges, histograms, and summaries. Counters are monotonically increasing values that are typically used to track the rate of events, such as the number of requests per second. Gauges are instantaneous values that can increase or decrease, such as the current temperature. Histograms and summaries are used to track the distribution of values, such as the request latencies.</p>
+<p>Prometheus data model is based on time-series data, where each series is identified by a unique metric name, and a set of key-value pairs called labels. Prometheus supports various data types, which allow to track the rate of events, instantaneous values, and distribution of values.</p>
+<p><a href="https://prometheus.io/docs/concepts/data_model/#data-model">More Info</a></p>
+<h3 id="metrics-transfer-format">Metrics Transfer Format<a href="#metrics-transfer-format" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Prometheus uses its own data format to transfer metrics between Prometheus components and exporters. Is a text-based format that is designed to be human-readable and easy to parse.</p>
+<p>Uses a line-based structure, where each line represents a single metric. Each metric is defined by a metric name, followed by a set of key-value pairs that define the labels of the metric. The metric value is then appended to the end of the line.</p>
+<p>The metric name and labels are separated by a space, while the key-value pairs are separated by an equals sign (=). Multiple key-value pairs are separated by a comma.</p>
+<p>Here&rsquo;s an example of a metric:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">http_request_duration_seconds</span>{<span style="color:#960050;background-color:#1e0010">method=</span><span style="color:#f92672">&#34;GET&#34;</span>, <span style="color:#960050;background-color:#1e0010">endpoint=</span><span style="color:#f92672">&#34;/users&#34;</span>} <span style="color:#ae81ff">0.123</span>
+</span></span></code></pre></div><p>In this example, the metric name is &ldquo;http_request_duration_seconds&rdquo;, and it has two labels &ldquo;method&rdquo; and &ldquo;endpoint&rdquo; with the respective values &ldquo;GET&rdquo; and &ldquo;/users&rdquo;. The value of the metric is 0.123.</p>
+<p>The format also supports sending multiple samples within the same metric, allowing for more efficient transfer of metrics. The format also includes a way to encode &ldquo;help&rdquo; and &ldquo;type&rdquo; of the metric, that is human-readable information about the metric and it&rsquo;s type.</p>
+<p><a href="https://training.promlabs.com/training/introduction-to-prometheus/prometheus-an-overview/metrics-transfer-format">More Info</a></p>
+<h3 id="query-language">Query Language<a href="#query-language" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p><strong>Prometheus Query Language (PromQL)</strong> is a powerful query language that is used to process and analyze metrics stored in Prometheus. It is designed to be expressive, yet easy to use, and allows users to perform complex queries and calculations on the collected metrics.</p>
+<p>PromQL supports a variety of operations, including:</p>
+<ul>
+<li>
+<p><strong>Aggregation</strong>: PromQL allows for aggregation of metrics based on their labels, for example, calculating the average request duration for all requests with a specific endpoint.</p>
+</li>
+<li>
+<p><strong>Arithmetic</strong>: PromQL supports basic mathematical operations such as addition, subtraction, multiplication, and division.</p>
+</li>
+<li>
+<p><strong>Filtering</strong>: PromQL allows for filtering metrics based on their labels, for example, selecting only the metrics for requests with a specific status code.</p>
+</li>
+<li>
+<p><strong>Vector matching</strong>: PromQL allows for selecting metrics based on their labels, for example, selecting all metrics that match a specific label value.</p>
+</li>
+<li>
+<p><strong>Functions</strong>: PromQL includes a variety of built-in functions, such as rate() to calculate the rate of change of a metric over time, histogram_quantile() to calculate quantiles of a histogram, and time() to select the timestamp of a metric.</p>
+</li>
+</ul>
+<p>PromQL also supports using subqueries to perform more complex calculations. For example, calculating the average request duration for all requests with a specific endpoint, then calculating the rate of change of that average over time.</p>
+<p>PromQL also supports the use of regular expressions for matching metric names and label values, and in-built functions for working with time series.</p>
+<p>Cheat Sheet: <a href="https://promlabs.com/promql-cheat-sheet/">https://promlabs.com/promql-cheat-sheet/</a></p>
+<p><a href="https://prometheus.io/docs/prometheus/latest/querying/basics/">More Info</a></p>
+<h3 id="alerting">Alerting<a href="#alerting" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Prometheus includes a built-in alerting system that allows users to define rules that trigger alerts based on the results of PromQL queries. The alerting system is composed of two main components: <strong>Prometheus server</strong> and <strong>Alertmanager</strong>.</p>
+<ul>
+<li>
+<p><strong>Prometheus Server</strong>: Prometheus server evaluates the alerting rules at a specified interval, and if a rule&rsquo;s condition is met, it sends an alert to the Alertmanager. The alert includes the metric name, labels, and value that triggered the alert, as well as the time that the alert was triggered.</p>
+</li>
+<li>
+<p><strong>Alertmanager</strong>: The Alertmanager is responsible for sending notifications about detected issues. It can be configured to route alerts to different receivers based on their severity and other criteria. It can also handle alert deduplication, aggregation, and silence management.</p>
+</li>
+</ul>
+<p>Alertmanager can send notifications via various methods like email, slack, pagerduty, etc. Alerts can also be grouped together, so that multiple alerts can be sent as a single notification, and the alertmanager can also be configured to send notifications to different people or teams depending on the alert&rsquo;s severity or the time of day.</p>
+<p>Users can define alerts in Prometheus configuration file, using PromQL queries to specify the conditions that should trigger the alert. Users can also specify the severity level of the alerts, and configure how often Prometheus should check for alerting conditions.</p>
+<h3 id="service-discovery">Service Discovery<a href="#service-discovery" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Prometheus includes support for service discovery, which allows it to automatically discover and scrape metrics from targets based on predefined criteria. Service discovery enables Prometheus to automatically discover new targets to scrape and remove targets that are no longer available.</p>
+<p>Prometheus supports several service discovery mechanisms, including:</p>
+<ul>
+<li>
+<p><strong>Static configuration</strong>: This is the simplest form of service discovery, where the target hosts and ports are configured manually in the Prometheus configuration file.</p>
+</li>
+<li>
+<p><strong>File-based service discovery</strong>: This allows users to specify a file containing a list of targets to scrape, which can be updated dynamically.</p>
+</li>
+<li>
+<p><strong>DNS-based service discovery</strong>: Prometheus can discover targets by querying a DNS server for a specific domain or subdomain.</p>
+</li>
+<li>
+<p><strong>Kubernetes service discovery</strong>: Prometheus can discover targets by querying the Kubernetes API for pods and services running in a specific namespace.</p>
+</li>
+</ul>
+<p>Service discovery can be configured in the Prometheus configuration file, where the user specifies the discovery mechanism to use and the necessary parameters.</p>
+<p>In conclusion, Prometheus is a powerful and widely used open-source monitoring system that has had a significant impact on the industry. Its ability to collect metrics from various sources, store them in a time-series database, and provide a powerful query language for processing and analyzing the collected data, makes it an ideal choice for monitoring dynamic and distributed environments. The built-in alerting system and service discovery capabilities further enhance its functionality. The ability to integrate with other popular tools like Kubernetes and Grafana makes it a popular choice for cloud-native environments. The flexibility and scalability of Prometheus have made it a go-to choice for organizations of all sizes, and its continued development and adoption show its importance in the industry. Prometheus has become an essential tool for ensuring the performance and availability of systems and applications, and its impact on the industry is undeniable.</p>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        
+        <span class="button next">
+            <a href="/posts/gitops/">
+                <span class="button__text">Gitops</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>
