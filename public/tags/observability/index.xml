@@ -6,7 +6,78 @@
     <description>Recent content in observability on Daniel Puig</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Jan 2023 10:17:17 -0500</lastBuildDate><atom:link href="/tags/observability/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 18 Jan 2023 22:33:56 -0500</lastBuildDate><atom:link href="/tags/observability/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prometheus Docker Installation</title>
+      <link>/posts/prometheus-docker-installation/</link>
+      <pubDate>Wed, 18 Jan 2023 22:33:56 -0500</pubDate>
+      
+      <guid>/posts/prometheus-docker-installation/</guid>
+      <description>Prometheus is a powerful open-source monitoring and alerting system that can be used to collect and store metrics from various sources. In this blog post, we will be covering how to install Prometheus using Docker runtime.
+Before getting started, make sure you have Docker installed on your machine. You can check if Docker is installed by running the following command:
+docker --version If Docker is not installed, you can follow the instructions on the Docker website to install it: https://docs.</description>
+      <content>&lt;p&gt;Prometheus is a powerful open-source monitoring and alerting system that can be used to collect and store metrics from various sources. In this blog post, we will be covering how to install Prometheus using Docker runtime.&lt;/p&gt;
+&lt;p&gt;Before getting started, make sure you have Docker installed on your machine. You can check if Docker is installed by running the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker --version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If Docker is not installed, you can follow the instructions on the Docker website to install it: &lt;a href=&#34;https://docs.docker.com/engine/install/&#34;&gt;https://docs.docker.com/engine/install/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Once you have Docker installed, you can proceed with the installation of Prometheus.&lt;/p&gt;
+&lt;p&gt;To start, we will pull the Prometheus image from the Docker hub by running the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker pull prom/prometheus
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Will create a volume to store the Prometheus data. This allows us to persist the data even if the container is deleted. To create the volume, run the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker volume create --name prometheus-data --opt type&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;none --opt device&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/home/user/config --opt o&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;bind
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;the-prometheus-configuration-file&#34;&gt;The Prometheus configuration file&lt;/h3&gt;
+&lt;p&gt;The Prometheus configuration file, typically named &amp;ldquo;prometheus.yml&amp;rdquo;, is used to configure various settings for the Prometheus server.&lt;/p&gt;
+&lt;p&gt;It includes information such as:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The scrape configuration, which defines how Prometheus should collect metrics from various sources. This includes the scraping interval, the target endpoints, and any authentication or encryption settings that may be required.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The alerting configuration, which defines the rules for generating alerts based on the collected metrics. This includes the alerting conditions, the alerting intervals, and the alerting receivers.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The rule files, which define the rules for recording and alerting on specific metrics.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The remote_write and remote_read configuration, which allows Prometheus to write and read metrics from remote storage systems like Thanos or Cortex.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The global configuration, which defines settings such as the log level, the retention time and the external label.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;By default, Prometheus will look for a configuration file named &amp;ldquo;prometheus.yml&amp;rdquo; in the current working directory, but the location of the configuration file can also be specified using the &lt;code&gt;--config.file&lt;/code&gt; command-line flag.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s worth noting that Prometheus configuration file is written in YAML format, which allows for easy readability and editing of the configuration options.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;/home/user/config/prometheus.yml&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;global&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;scrape_interval&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;5s&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;scrape_configs&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- &lt;span style=&#34;color:#f92672&#34;&gt;job_name&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;prometheus&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;static_configs&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - &lt;span style=&#34;color:#f92672&#34;&gt;targets&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - &lt;span style=&#34;color:#ae81ff&#34;&gt;localhost:9090&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- &lt;span style=&#34;color:#f92672&#34;&gt;job_name&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;demo&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;static_configs&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - &lt;span style=&#34;color:#f92672&#34;&gt;targets&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - &lt;span style=&#34;color:#ae81ff&#34;&gt;demo.promlabs.com:10000 &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - &lt;span style=&#34;color:#ae81ff&#34;&gt;demo.promlabs.com:10001&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - &lt;span style=&#34;color:#ae81ff&#34;&gt;demo.promlabs.com:10002&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;run-the-container&#34;&gt;Run the container&lt;/h3&gt;
+&lt;p&gt;We can start a Prometheus container by running the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker run -d --name prometheus &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    -p 9090:9090 &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    -v prometheus-data:/prometheus &lt;span style=&#34;color:#ae81ff&#34;&gt;\ &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    prom/prometheus
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will start a Prometheus container and map port 9090 on your host machine to port 9090 in the container. You can access the Prometheus web interface by navigating to http://localhost:9090 in your web browser.&lt;/p&gt;
+&lt;p&gt;Using Docker to install services like Prometheus Monitoring System is a convenient and easy way to set up and manage your monitoring infrastructure. Docker allows for easy deployment, scaling, and management of your Prometheus server and its dependencies.&lt;/p&gt;
+&lt;p&gt;Docker provides a consistent and reproducible environment for your Prometheus server, which means that you can be sure that your server will run the same way in development, testing, and production environments. This helps to minimize the risk of configuring the service differently in different environments, which can lead to unexpected behavior.&lt;/p&gt;
+&lt;p&gt;Docker also makes it easy to scale your Prometheus server horizontally by simply spinning up more containers. This is particularly useful when you need to handle a large amount of incoming metrics or when you need to distribute your monitoring infrastructure across multiple regions.&lt;/p&gt;
+&lt;p&gt;Additionally, Docker makes it simple to upgrade your Prometheus server to a new version. You can simply pull the new image and start a new container, without affecting the existing metrics data.&lt;/p&gt;
+&lt;p&gt;In conclusion, using Docker to install services like Prometheus Monitoring System makes it easy to set up and manage your monitoring infrastructure, providing consistency across different environments, scalability, and easy upgrade of the service.&lt;/p&gt;
+</content>
+    </item>
+    
     <item>
       <title>Prometheus 101</title>
       <link>/posts/prometheus-introduction/</link>
