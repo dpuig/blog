@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Prometheus Metrics Types :: Daniel Puig</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Prometheus is a powerful open-source monitoring system that is widely used to collect, store and analyze time series data. One of the key features of Prometheus is its ability to collect a wide range of metrics, which can be used to monitor the performance of your infrastructure and applications. In this blog post, we will take a closer look at the different types of metrics that Prometheus supports, including counters, gauges, histograms, and summaries." />
+<meta name="keywords" content=", " />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/posts/prometheus-metrics-types/" />
+
+
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/orange-local.css">
+
+
+
+
+
+
+
+  <link rel="shortcut icon" href="/img/theme-colors/orange.png">
+  <link rel="apple-touch-icon" href="/img/theme-colors/orange.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="dpuiger" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Prometheus Metrics Types">
+<meta property="og:description" content="Prometheus is a powerful open-source monitoring system that is widely used to collect, store and analyze time series data. One of the key features of Prometheus is its ability to collect a wide range of metrics, which can be used to monitor the performance of your infrastructure and applications. In this blog post, we will take a closer look at the different types of metrics that Prometheus supports, including counters, gauges, histograms, and summaries." />
+<meta property="og:url" content="/posts/prometheus-metrics-types/" />
+<meta property="og:site_name" content="Daniel Puig" />
+
+  
+  
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/3/38/Prometheus_software_logo.svg">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2023-01-24 22:35:11 -0500 EST" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="orange">
+
+
+<div class="container headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Daniel Puig Blog
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="https://github.com/dpuig">GitHub</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/dpuiger">Twitter</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="https://github.com/dpuig">GitHub</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/dpuiger">Twitter</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="/posts/prometheus-metrics-types/">Prometheus Metrics Types</a>
+  </h1>
+  <div class="post-meta">
+    
+      <time class="post-date">
+        2023-01-24 ::
+        
+      </time>
+    
+    
+      <span class="post-author">Daniel Puig</span>
+    
+    
+  </div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="/tags/monitoring/">monitoring</a>&nbsp;
+      
+      #<a href="/tags/observability/">observability</a>&nbsp;
+      
+      #<a href="/tags/metrics/">metrics</a>&nbsp;
+      
+      #<a href="/tags/prometheus/">prometheus</a>&nbsp;
+      
+    </span>
+  
+  
+  <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Prometheus_software_logo.svg"
+    class="post-cover"
+    alt="Prometheus Metrics Types"
+    title="Cover Image" />
+
+
+  
+
+  <div class="post-content"><div>
+        <p>Prometheus is a powerful open-source monitoring system that is widely used to collect, store and analyze time series data. One of the key features of Prometheus is its ability to collect a wide range of metrics, which can be used to monitor the performance of your infrastructure and applications. In this blog post, we will take a closer look at the different types of metrics that Prometheus supports, including counters, gauges, histograms, and summaries. Understanding the different types of metrics that Prometheus can collect is essential for making the most of this powerful monitoring tool. Whether you are a DevOps engineer, a system administrator, or a developer, this post will provide you with valuable insights into how to effectively monitor your systems and applications with Prometheus.</p>
+<p><a href="https://prometheus.io/docs/concepts/metric_types/">More Info</a></p>
+<h2 id="counter">Counter<a href="#counter" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>A cumulative metric that represents a single numerical value that only ever increases. It is used to track the number of occurrences of a specific event or action, such as the number of requests served, the number of errors, or the number of items sold. Counters are useful for tracking metrics that are accumulated over time, such as the total number of requests served by a web server.</p>
+<p>In Golang, you can use the Prometheus client library to expose a Counter metric. Here&rsquo;s an example of how to create and increment a Counter in Golang:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/prometheus/client_golang/prometheus&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/prometheus/client_golang/prometheus/promhttp&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;net/http&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">requestsCounter</span> = <span style="color:#a6e22e">prometheus</span>.<span style="color:#a6e22e">NewCounter</span>(<span style="color:#a6e22e">prometheus</span>.<span style="color:#a6e22e">CounterOpts</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Name</span>: <span style="color:#e6db74">&#34;myapp_requests_total&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Help</span>: <span style="color:#e6db74">&#34;The total number of requests served by the application&#34;</span>,
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Register the counter with Prometheus
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">prometheus</span>.<span style="color:#a6e22e">MustRegister</span>(<span style="color:#a6e22e">requestsCounter</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Increment the counter for each request
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">requestsCounter</span>.<span style="color:#a6e22e">Inc</span>()
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">Write</span>([]byte(<span style="color:#e6db74">&#34;Hello, Prometheus World Counter!&#34;</span>))
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Expose the Prometheus metrics endpoint
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Handle</span>(<span style="color:#e6db74">&#34;/metrics&#34;</span>, <span style="color:#a6e22e">promhttp</span>.<span style="color:#a6e22e">Handler</span>())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;:8080&#34;</span>, <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In this example, we are creating a counter called &ldquo;myapp_requests_total&rdquo; that keeps track of the total number of requests served by the application. The counter is registered with Prometheus and incremented for each request that the application handles. The Prometheus client library also provides a way to expose the metrics in an HTTP endpoint, which we can access on the path &ldquo;/metrics&rdquo; to scrape the metrics.</p>
+<p>Note that it&rsquo;s important to not reset the counter as it&rsquo;s a cumulative metric, if you need to track a metric that can be resetted you should use Gauge instead.</p>
+<h3 id="exposition">Exposition<a href="#exposition" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># HELP myapp_requests_total The total number of requests served by the application</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># TYPE myapp_requests_total counter</span>
+</span></span><span style="display:flex;"><span>myapp_requests_total <span style="color:#ae81ff">29</span>
+</span></span></code></pre></div><h3 id="counter-rate-of-increase">Counter Rate of Increase<a href="#counter-rate-of-increase" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p><strong>rate ()</strong></p>
+<p><strong>irate()</strong></p>
+<p><strong>increase()</strong></p>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-promql" data-lang="promql"><span style="display:flex;"><span><span style="color:#66d9ef">rate</span><span style="color:#f92672">(</span>myapp_requests_total[<span style="color:#e6db74">2m</span>]<span style="color:#f92672">)</span>
+</span></span></code></pre></div><h2 id="gauge">Gauge<a href="#gauge" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>A Gauge is a metric that represents a single numerical value that can arbitrarily go up and down. It is used to track a value that can change over time, such as the temperature of a machine, the number of active connections, or the available memory. Gauges are useful for tracking metrics that change dynamically, such as the number of users currently connected to a website.</p>
+<p>In Golang, you can use the Prometheus client library to expose a Gauge metric. Here&rsquo;s an example of how to create and update a Gauge in Golang:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/prometheus/client_golang/prometheus&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/prometheus/client_golang/prometheus/promhttp&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;net/http&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">activeConnections</span> = <span style="color:#a6e22e">prometheus</span>.<span style="color:#a6e22e">NewGauge</span>(<span style="color:#a6e22e">prometheus</span>.<span style="color:#a6e22e">GaugeOpts</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Name</span>: <span style="color:#e6db74">&#34;myapp_active_connections&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Help</span>: <span style="color:#e6db74">&#34;The number of active connections to the application&#34;</span>,
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Register the gauge with Prometheus
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">prometheus</span>.<span style="color:#a6e22e">MustRegister</span>(<span style="color:#a6e22e">activeConnections</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Update the gauge for each request
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">activeConnections</span>.<span style="color:#a6e22e">Add</span>(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">activeConnections</span>.<span style="color:#a6e22e">Dec</span>(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">Write</span>([]byte(<span style="color:#e6db74">&#34;Hello, Prometheus World Gauge!&#34;</span>))
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Expose the Prometheus metrics endpoint
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Handle</span>(<span style="color:#e6db74">&#34;/metrics&#34;</span>, <span style="color:#a6e22e">promhttp</span>.<span style="color:#a6e22e">Handler</span>())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;:8080&#34;</span>, <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>We are creating a gauge called &ldquo;myapp_active_connections&rdquo; that keeps track of the number of active connections to the application. The gauge is registered with Prometheus and incremented by 1 for each request that the application handles. Then we decrement the gauge by 1 to reflect the end of the request. The Prometheus client library also provides a way to expose the metrics in an HTTP endpoint, also here we can access on the path &ldquo;/metrics&rdquo; to scrape the metrics.</p>
+<p>Note that you can also use the Set(float64) method to set the value of a gauge, or the Inc() or Dec() method to increment or decrement the value by 1.</p>
+<h3 id="exposition-1">Exposition<a href="#exposition-1" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># HELP myapp_active_connections The number of active connections to the application.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># TYPE myapp_active_connections gauge</span>
+</span></span><span style="display:flex;"><span>myapp_active_connections <span style="color:#ae81ff">34</span>
+</span></span></code></pre></div><h2 id="histogram">Histogram<a href="#histogram" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Is a metric that samples observations and provides a statistical summary of the distribution of the values. It is used to track the distribution of a metric over time, such as request latencies, response sizes, or durations of an operation. Histograms are useful for analyzing the performance of an application or service by providing a detailed view of how the metric is distributed across different values.</p>
+<p>In Golang, you can use the Prometheus client library to expose a Histogram metric. Here&rsquo;s an example of how to create and observe a Histogram in Golang:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;time&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/prometheus/client_golang/prometheus&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/prometheus/client_golang/prometheus/promhttp&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;net/http&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">responseTime</span> = <span style="color:#a6e22e">prometheus</span>.<span style="color:#a6e22e">NewHistogram</span>(<span style="color:#a6e22e">prometheus</span>.<span style="color:#a6e22e">HistogramOpts</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Name</span>: <span style="color:#e6db74">&#34;myapp_response_time_seconds&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Help</span>: <span style="color:#e6db74">&#34;The response time of the application in seconds&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Buckets</span>: <span style="color:#a6e22e">prometheus</span>.<span style="color:#a6e22e">LinearBuckets</span>(<span style="color:#ae81ff">0.01</span>, <span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">10</span>),
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Register the histogram with Prometheus
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">prometheus</span>.<span style="color:#a6e22e">MustRegister</span>(<span style="color:#a6e22e">responseTime</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Observe the response time for each request
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">start</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>()
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">Write</span>([]byte(<span style="color:#e6db74">&#34;Hello, Prometheus World Histograms!&#34;</span>))
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">responseTime</span>.<span style="color:#a6e22e">Observe</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Since</span>(<span style="color:#a6e22e">start</span>).<span style="color:#a6e22e">Seconds</span>())
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Expose the Prometheus metrics endpoint
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Handle</span>(<span style="color:#e6db74">&#34;/metrics&#34;</span>, <span style="color:#a6e22e">promhttp</span>.<span style="color:#a6e22e">Handler</span>())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;:8080&#34;</span>, <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Here a histogram called &ldquo;myapp_response_time_seconds&rdquo; that keeps track of the response time of the application in seconds. We set up a set of linear buckets to observe the metric and we use the Observe(float64) method to record the response time of the request. The Prometheus client library also provides a way to expose the metrics in an HTTP endpoint, which we can access on the path &ldquo;/metrics&rdquo; to scrape the metrics.</p>
+<p>Histograms in Prometheus use Buckets to aggregate observations, Buckets are predefined ranges of values that are used to count the observations that fall within each range. It&rsquo;s important to define the appropriate Buckets for your use case to get a meaningful Histogram.</p>
+<h3 id="exposition-2">Exposition<a href="#exposition-2" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># HELP myapp_response_time_seconds The response time of the application in seconds</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># TYPE myapp_response_time_seconds histogram</span>
+</span></span><span style="display:flex;"><span>myapp_response_time_seconds_bucket<span style="color:#f92672">{</span>le<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0.01&#34;</span><span style="color:#f92672">}</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>myapp_response_time_seconds_bucket<span style="color:#f92672">{</span>le<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0.1&#34;</span><span style="color:#f92672">}</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>myapp_response_time_seconds_bucket<span style="color:#f92672">{</span>le<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;10&#34;</span><span style="color:#f92672">}</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>myapp_response_time_seconds_sum <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>myapp_response_time_seconds_count <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p><strong>Quantiles from Histograms</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-promql" data-lang="promql"><span style="display:flex;"><span><span style="color:#66d9ef">histogram_quantile</span><span style="color:#f92672">(&lt;</span>target_quantile<span style="color:#f92672">&gt;</span>, <span style="color:#f92672">&lt;</span>histogram<span style="color:#f92672">&gt;)</span>
+</span></span></code></pre></div><p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-promql" data-lang="promql"><span style="display:flex;"><span><span style="color:#75715e"># 90th percentile latency,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># averaged over the last 5 minutes.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">histogram_quantile</span><span style="color:#f92672">(</span><span style="color:#ae81ff">0.9</span>, <span style="color:#66d9ef">rate</span><span style="color:#f92672">(</span>myapp_response_time_seconds_bucket[<span style="color:#e6db74">5m</span>]<span style="color:#f92672">))</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-promql" data-lang="promql"><span style="display:flex;"><span><span style="color:#75715e"># 90th percentile latency for each path/method,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># combination, averaged over the last 5 minutes.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">histogram_quantile</span><span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0.9</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">sum</span> <span style="color:#66d9ef">by</span><span style="color:#f92672">(</span>path, method, le<span style="color:#f92672">)</span> <span style="color:#f92672">(</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">rate</span><span style="color:#f92672">(</span>myapp_response_time_seconds_bucket[<span style="color:#e6db74">5m</span>]<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span>
+</span></span></code></pre></div><p><strong>Average Latencies</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-promql" data-lang="promql"><span style="display:flex;"><span><span style="color:#75715e"># Average response over the las 5 minutes.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">rate</span><span style="color:#f92672">(</span>myapp_response_time_seconds_sum[<span style="color:#e6db74">5m</span>]<span style="color:#f92672">)</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">rate</span> <span style="color:#f92672">(</span>myapp_response_time_seconds_count[<span style="color:#e6db74">5m</span>]<span style="color:#f92672">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-promql" data-lang="promql"><span style="display:flex;"><span><span style="color:#75715e"># Aggregated per path/method average response.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">sum</span> <span style="color:#66d9ef">by</span><span style="color:#f92672">(</span>path, method<span style="color:#f92672">)</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">rate</span><span style="color:#f92672">(</span>myapp_response_time_seconds_sum[<span style="color:#e6db74">5m</span>]<span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">sum</span> <span style="color:#66d9ef">by</span><span style="color:#f92672">(</span>path, method<span style="color:#f92672">)</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">rate</span> <span style="color:#f92672">(</span>myapp_response_time_seconds_count[<span style="color:#e6db74">5m</span>]<span style="color:#f92672">))</span>
+</span></span></code></pre></div><h2 id="summary">Summary<a href="#summary" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>A Summary is a metric that also samples observations and provides a statistical summary, but it also calculates quantiles (e.g. median, 90th percentile) of the distribution. It is used to track the distribution of a metric over time, such as request latencies, response sizes, or durations of an operation. Summaries are similar to Histograms, but they also provide quantile information, which can be useful for understanding the distribution of a metric more precisely.</p>
+<p>In Golang, you can use the Prometheus client library to expose a Summary metric. Here&rsquo;s an example of how to create and observe a Summary in Golang:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;time&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/prometheus/client_golang/prometheus&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/prometheus/client_golang/prometheus/promhttp&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;net/http&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">responseTime</span> = <span style="color:#a6e22e">prometheus</span>.<span style="color:#a6e22e">NewSummary</span>(<span style="color:#a6e22e">prometheus</span>.<span style="color:#a6e22e">SummaryOpts</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Name</span>: <span style="color:#e6db74">&#34;myapp_response_time_seconds&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Help</span>: <span style="color:#e6db74">&#34;The response time of the application in seconds&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Objectives</span>: <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">float64</span>]<span style="color:#66d9ef">float64</span>{<span style="color:#ae81ff">0.5</span>: <span style="color:#ae81ff">0.05</span>, <span style="color:#ae81ff">0.9</span>: <span style="color:#ae81ff">0.01</span>, <span style="color:#ae81ff">0.99</span>: <span style="color:#ae81ff">0.001</span>},
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Register the summary with Prometheus
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">prometheus</span>.<span style="color:#a6e22e">MustRegister</span>(<span style="color:#a6e22e">responseTime</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Observe the response time for each request
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">start</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>()
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">Write</span>([]byte(<span style="color:#e6db74">&#34;Hello, Prometheus World Summary!&#34;</span>))
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">responseTime</span>.<span style="color:#a6e22e">Observe</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Since</span>(<span style="color:#a6e22e">start</span>).<span style="color:#a6e22e">Seconds</span>())
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Expose the Prometheus metrics endpoint
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Handle</span>(<span style="color:#e6db74">&#34;/metrics&#34;</span>, <span style="color:#a6e22e">promhttp</span>.<span style="color:#a6e22e">Handler</span>())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;:8080&#34;</span>, <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In this example, we are creating a Summary called &ldquo;myapp_response_time_seconds&rdquo; that keeps track of the response time of the application in seconds. We use the Observe(float64) method to record the response time of the request and set objectives which are a map of quantiles to their absolute error. The Prometheus client library also provides a way to expose the metrics in an HTTP endpoint, which we can access on the path &ldquo;/metrics&rdquo; to scrape the metrics.</p>
+<p>The quantiles are calculated based on the observations that have been recorded, and they are exposed as a separate metric in Prometheus. This allows you to easily query the median, 90th percentile, or other quantiles of the distribution directly, which can be useful for troubleshooting performance issues or identifying outliers.</p>
+<h3 id="exposition-3">Exposition<a href="#exposition-3" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># HELP myapp_response_time_seconds The response time of the application in seconds.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># TYPE myapp_response_time_seconds summary</span>
+</span></span><span style="display:flex;"><span>myapp_response_time_seconds<span style="color:#f92672">{</span>quantile<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0.5&#34;</span><span style="color:#f92672">}</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>myapp_response_time_seconds<span style="color:#f92672">{</span>quantile<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0.9&#34;</span><span style="color:#f92672">}</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>myapp_response_time_seconds<span style="color:#f92672">{</span>quantile<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0.99&#34;</span><span style="color:#f92672">}</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>myapp_response_time_seconds_sum <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>myapp_response_time_seconds_count <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>For now we will leave this documentation here for now, soon we will wave more on this topic with much more examples.</p>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        
+        <span class="button next">
+            <a href="/posts/prometheus-docker-installation/">
+                <span class="button__text">Prometheus Docker Installation</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>
